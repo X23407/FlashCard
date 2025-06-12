@@ -17,7 +17,8 @@ class mathCoreClass {
 
     }
 
-    updateExpression(){   
+    updateExpression(){ 
+        this.ansLabel.innerHTML = this.answer +" (prev Ans)";
         this.number1 = Math.floor(Math.random()*this.n1max + this.n1min);
         this.number2 = Math.floor(Math.random()*this.n2max + this.n2min);
         // this.mainLabel.innerHTML = this.number1 + this.number2
@@ -38,7 +39,6 @@ class mathCoreClass {
         this.answer = this.calculatorAnswer()
         this.Record.push(expression)
         //visual updation
-        this.ansLabel.innerHTML = this.answer +" (prev Ans)";
         this.mainLabel.innerHTML = expression;
 
         
