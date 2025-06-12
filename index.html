@@ -1,0 +1,85 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="mathFlashCore.js"></script>
+    <style>
+    /* body{
+        margin-left: 5vw;
+    } */
+    .rect-label{
+        display: inline-block;
+        width : 220px;
+        height : 200px;
+        background-color: rgb(37, 192, 50);
+        text-align: center;
+        line-height: 200px;
+        text-shadow: 100px;
+        font: Arial, sans-serif;
+        font-size: 38px;
+        border: 10px solid black;
+        margin-left: auto;
+        /* border-color: lightblue; */
+    }
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 20px;
+    }
+    .prev-label{
+        display: inline-block;
+        width : 216px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        background-color: aqua;
+        border: 2px solid black;
+
+
+    }
+    .button-1{
+        display: inline-block;
+        width : 108px;
+        height : 20px;
+        text-align: center;
+        line-height: 10px;
+        border : 1px solid black;
+        margin-top: 20px;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashCard</title>
+</head>
+<body>
+    <div class="container">
+    <h1>FlashCard!</h1>
+    <select  id="Operation" class="form-selected" onchange="mathCore.changedOperator()">
+        <option value="+">Addition(+)</option>
+        <option value="-">Subtraction(-)</option>
+        <option value="*">Multiplication(*)</option>
+        <option value="/">Division(/)</option>
+    </select>
+    <select  id="mode" class="form-selected" onchange="mathCore.changedMode()">
+        <option value="one-one">one-one</option>
+        <option value="one-two">one-two</option>
+        <option value="two-two-easy">two-two-easy</option>
+        <option value="two-two">two-two</option>
+        <option value="t-30">Table-30</option>
+    </select> <br><br>
+    <button class="rect-label" id = "mainLabel" onclick="mathCore.showAnswer()">Hello</button> <br>
+    <label class="prev-label" id = "answer">Prev Answer</label> <br>
+    <button class="button-1">Prev</button>
+    <button onclick="mathCore.updateExpression()" class="button-1">Next</button>
+    </div>
+
+
+    
+</body>
+<script>
+    const mathCore = new mathCoreClass();
+    mathCore.helloWorld();
+    mathCore.updateExpression();
+
+</script>
+</html>
