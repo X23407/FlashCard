@@ -19,7 +19,17 @@
         font-size: 38px;
         border: 10px solid black;
         margin-left: auto;
+        transition: background-color 0.6s, transform 0.6s;
+        transform-style: preserve-3d;
+
         /* border-color: lightblue; */
+    }
+    .rect-label:active {
+        background-color: lime;
+    }
+    .rect-label.flipped {
+        transform: rotateY(360deg);
+        backface-visibility: hidden;
     }
     .container {
         width: 100%;
@@ -45,6 +55,18 @@
         line-height: 10px;
         border : 1px solid black;
         margin-top: 20px;
+        transition: background-color 0.2s, transform 0.1s; 
+    }
+    .button-1:active {
+      background-color: #8e3939;
+      transform: translateY(1px);
+    }
+    .button-1:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.5); /* Similar to browser focus ring */
+    }
+    .button-1:hover {
+        background-color: #e0e0e0;
     }
     </style>
     <meta charset="UTF-8">
@@ -69,7 +91,7 @@
     </select> <br><br>
     <button class="rect-label" id = "mainLabel" onclick="mathCore.showAnswer()">Hello</button> <br>
     <label class="prev-label" id = "answer">Prev Answer</label> <br>
-    <button class="button-1">Prev</button>
+    <button class="button-1" onclick="mathCore.btnPrev()">Prev</button>
     <button onclick="mathCore.updateExpression()" class="button-1">Next</button>
     </div>
 
