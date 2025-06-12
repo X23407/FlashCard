@@ -17,7 +17,7 @@ class mathCoreClass {
 
     }
 
-    updateExpression(){ 
+    updateExpression(){  
         this.ansLabel.innerHTML = this.answer +" (prev Ans)";
         this.number1 = Math.floor(Math.random()*this.n1max + this.n1min);
         this.number2 = Math.floor(Math.random()*this.n2max + this.n2min);
@@ -34,11 +34,10 @@ class mathCoreClass {
             alert("Following all data will be repeated")
             this.Record = []
         }
-        this.repetition = 0
-        this.mainLabel.innerHTML 
+        this.repetition = 0 
         this.answer = this.calculatorAnswer()
-        this.Record.push(expression)
-        //visual updation
+        this.Record.unshift(expression)
+        //visual updations
         this.mainLabel.innerHTML = expression;
 
         
@@ -58,6 +57,7 @@ class mathCoreClass {
     }
 
     showAnswer(){
+        this.mainLabel.classList.toggle("flipped");
         let it  = this.mainLabel.innerText;
         if (it == this.answer){
             this.mainLabel.innerHTML = `${this.number1} ${this.operator} ${this.number2}`;
@@ -72,6 +72,17 @@ class mathCoreClass {
     }
     helloWorld(){
         console.log("Hello World");
+    }
+    btnPrev(){
+        console.log(this.Record[0])
+        let expression = this.Record[1]
+        this.mainLabel.innerHTML = expression;
+        expression = expression.split(" ");
+        this.number1 = Number(expression[0]);
+        this.number2 = Number(expression[2]);
+        this.answer = this.calculatorAnswer()
+        //visual updation
+        this.ansLabel.innerHTML = this.answer + " (Cur Answer)";
     }
     changedMode(){
         let mode = document.getElementById("mode").value;
